@@ -5,9 +5,9 @@ body {
   background-attachment: fixed;
   background: url('./assets/bg.png') no-repeat;
   background-size: cover;
-  display: grid;
-  align-items: center;
-  justify-content: center;
+  // display: grid;
+  // align-items: center;
+  // justify-content: center;
   // height: 100vh;
 }
 
@@ -26,14 +26,14 @@ body {
 }
 
 .container {
-  width: 30rem;
-  height: 20rem;
+  height: 100%;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
   border-radius: 5px;
   position: relative;
   z-index: 1;
   background: inherit;
   overflow: hidden;
+  backdrop-filter: blur(5px);
 }
 
 html, body { height: 100%; }

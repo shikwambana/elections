@@ -1,4 +1,16 @@
-<div class="containers">
-<p>home works!</p>
+<div fxLayout="column wrap">
+  <div fxLayout="row wrap">
+    <h1>General Elction Results for 1994</h1>
+  </div>
+  <div fxLayout="row wrap">
+    <div fxLayout="column wrap">
+      <p *ngFor="let party of data; let i = index">
+        {{i + 1 }}. {{party['name']}} {{party['data']}}
+      </p>
+    </div>
+    <div fxLayout="column wrap">
+
+    </div>
+  </div>
 
 </div>
