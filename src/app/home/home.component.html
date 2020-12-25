@@ -1,16 +1,60 @@
-<div fxLayout="column wrap">
-  <div fxLayout="row wrap">
-    <h1>General Elction Results for 1994</h1>
+<div fxLayout="column">
+  <div>
+    <h1 style="text-align: center;">General Elction Results</h1>
   </div>
-  <div fxLayout="row wrap">
-    <div fxLayout="column wrap">
-      <p *ngFor="let party of data; let i = index">
-        {{i + 1 }}. {{party['name']}} {{party['data']}}
-      </p>
+  <div fxLayout="row wrap" fxLayout.fxFlex.lt-fxFlex.lt-sm="column" fxLayoutGap="50px" fxLayoutGap.fxFlex.lt-sm="0px">
+    <div fxLayout="column wrap" fxFlex.lt-sm="100">
+      <div>
+        <h2>Top Three</h2>
+      </div>
+      <div class="card">
+        <div class="titles" *ngFor="let party of api.topThree; let i = index">
+          <h3>
+            {{i + 1 }}. {{party['name']}}
+          </h3>
+          <h4>
+            {{party['data']}}
+          </h4>
+        </div>
+      </div>
     </div>
-    <div fxLayout="column wrap">
+    <div fxLayout="column wrap"  fxFlex.lt-sm="100">
+      <div>
+        <h2>All Parties</h2>
+      </div>
+      <div fxLayout="column wrap">
+        <div class="aRow searchBar">
+          <input placeholder="Search">
+          <mat-icon>search</mat-icon>
+        </div>
 
+        <div class="partyList">
+
+          <table mat-table [dataSource]="api.parties">
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+            <ng-container matColumnDef="Flag">
+              <th mat-header-cell *matHeaderCellDef> Flag </th>
+              <td mat-cell *matCellDef="let party"> {{party.icon}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let party"> {{party.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Number of Votes">
+              <th mat-header-cell *matHeaderCellDef> Number of votes </th>
+              <td mat-cell *matCellDef="let party"> {{party.data}} </td>
+            </ng-container>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
+
+
+
 
 </div>

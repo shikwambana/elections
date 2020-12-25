@@ -7,21 +7,14 @@ import { ApiService } from "../api.service";
 })
 export class HomeComponent implements OnInit {
   data: Array<object> = [];
-  constructor(private api: ApiService) {}
+  columnsToDisplay = ['Flag', 'Name', 'Number of Votes']
+
+  constructor(public api: ApiService) {}
 
   ngOnInit() {
-    this.api.getData("generalElections", "1994","topThree").subscribe((res: object) => {
-
-      let keys = Object.keys(res['results'])
-
-      for(let elem of keys){
-        this.data.push({
-          name: elem,
-          data: res['results'][elem]
-        })
-      }
-
-      console.log(this.data);
-    });
+    this.api.getTopThree();
+    this.api.getGenElecResult()
   }
+
+
 }
