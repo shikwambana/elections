@@ -1,14 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 
+html {
+  height: 100%;
+}
 
 body {
+  font-family: 'ABeeZee', sans-serif;
   background-attachment: fixed;
-  background: url('./assets/bg.png') no-repeat;
+  background: url('./assets/bg-sa.png') no-repeat;
   background-size: cover;
-  // display: grid;
-  // align-items: center;
-  // justify-content: center;
-  // height: 100vh;
+  height: 100%;
+  margin: 0;
+}
+
+.mat-toolbar {
+  background: transparent !important;
+  padding: 0 20px;
+  align-content: space-between;
+
+  .yearSelector {
+    display: flex;
+
+    .mat-icon {
+      padding: 3px;
+    }
+  }
+
 }
 
 .container:before {
@@ -34,7 +52,104 @@ body {
   background: inherit;
   overflow: hidden;
   backdrop-filter: blur(5px);
+  overflow: auto;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 !important;
+}
+
+.titles {
+  margin: 5px 10px;
+}
+
+.card {
+  // border-radius: 15px;
+  // background: linear-gradient(145deg, #ffffffd1, #68afda00);
+  // box-shadow: 5px 5px 15px #338bad, -2px -2px 4px #53a6d83b;
+  // box-shadow: 5px 5px 15px #338badb8, -2px -2px 4px #53a6d800;
+  // border-left: #007298 solid 6px;
+  // min-width: 200px;
+  // max-width: 300px;
+  // min-height: 70px;
+  // padding: 10px;
+  // margin: 10px 0;
+
+  background: linear-gradient(145deg, #ffffff, #9e9b9b73);
+  box-shadow: 5px 5px 15px #696969b8, -2px -2px 4px #53a6d800;
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 70px;
+  padding: 10px;
+  margin: 10px 0;
+
+  h3 {
+    font-weight: 570;
+  }
+
+  h4 {
+    font-size: larger;
+  }
+}
+
+.card2 {
+  background: linear-gradient(145deg, #ffffffd1, #68afda00);
+  border-left: blue solid 2px;
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 70px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.greenBtn {
+  background: linear-gradient(145deg, #84bcd24a, #16d625);
+  color: white;
+
+}
+
+.redBtn {
+  background: linear-gradient(145deg, #e84949a8, #f70606);
+}
+
+.secondaryBtn {
+  border: 1px solid #00000073 !important;
+  color: black;
+}
+
+button {
+  margin: 5px !important;
+}
+
+button:disabled {
+  border: 1px solid;
+}
+
+.aRow {
+  margin: 10px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.searchBar {
+  padding: 10px 20px;
+  background: linear-gradient(145deg, #ffffff, #ffffff1c);
+  box-shadow: 5px 5px 15px #7d7d7db8, -2px -2px 3px #98999a00;
+  max-width: 215px;
+
+  input {
+    border: none !important;
+    background: transparent;
+  }
+
+  input:focus {
+    border: none !important;
+    outline: none !important;
+  }
+}
