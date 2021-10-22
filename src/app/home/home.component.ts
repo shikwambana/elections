@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { ApiService } from "../api.service";
 import { BottomOptionsComponent } from "../bottom-options/bottom-options.component";
 import { MatBottomSheet } from "@angular/material/bottom-sheet";
-import {MatSort, Sort} from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: "app-home",
@@ -20,7 +21,9 @@ export class HomeComponent implements OnInit {
   parties;
   filteredParties;
   @ViewChild(MatSort) matSort: MatSort;
-  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  isReadMore = true
+
   constructor(private _bottomSheet: MatBottomSheet, public api: ApiService) {
     this.selectYear();
   }
@@ -28,6 +31,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.api.getTopThree(this.currentYear)
     this.api.getGenElecResult(this.currentYear)
+    // this.api.parties.paginator = this.paginator;
   }
 
   selectYear() {
@@ -45,6 +49,9 @@ export class HomeComponent implements OnInit {
       if (res) {
         this.currentYear = res;
         this.api.currentYear = res
+        sessionStorage.setItem('year',res)
+        this.api.getTopThree(this.currentYear)
+        this.api.getGenElecResult(this.currentYear)
       }
     });
   }
@@ -56,6 +63,6 @@ export class HomeComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.api.parties.filter = filterValue.trim().toLowerCase();
-   
+
   }
 }

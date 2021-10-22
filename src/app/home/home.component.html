@@ -12,36 +12,56 @@
   </div>
   <div fxLayout="row wrap" fxLayout.fxFlex.lt-fxFlex.lt-sm="column" fxLayoutGap.fxFlex.lt-sm="0px">
     <div fxLayout="column wrap" fxFlex.lt-sm="100" fxFill>
-      <div>
-        <h2>Top Three</h2>
-        <mat-tab-group>
-          <mat-tab label="Top Three">
-
-            <div class="card" ngClass.lt-sm="cardMobile">
-              <div *ngIf="api.topThree.length == 0">
-                <p style="text-align: center;">Fetching Data...</p>
-              </div>
-              <div class="titles" *ngFor="let party of api.topThree; let i = index">
-                <h3>
-                  {{i + 1 }}. {{party['name']}}
-                </h3>
-                <h4>
-                  {{party['data']}}
-                </h4>
-              </div>
+      <mat-tab-group>
+        <mat-tab label="Top Three">
+          <div class="card" ngClass.lt-sm="cardMobile">
+            <div *ngIf="api.topThree.length == 0">
+              <p style="text-align: center;">Fetching Data...</p>
             </div>
+            <div class="titles" *ngFor="let party of api.topThree; let i = index">
+              <h3>
+                {{i + 1 }}. {{party['name']}}
+              </h3>
+              <h4>
+                {{party['data'] | number:'1.0':'en-US'}}
+              </h4>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Vote Count">
+          <div class="card" ngClass.lt-sm="cardMobile">
+            <div class="titles">
+              <h3>
+                Registered Voters
+              </h3>
+              <h4>
+                {{api.stats['registered_voters'] | number:'1.0':'en-US' }}
+              </h4>
+            </div>
+            <div class="titles">
+              <h3>
+                Spoilt Votes
+              </h3>
+              <h4>
+                {{api.stats['spoilt_votes'] | number:'1.0':'en-US' }}
+              </h4>
+            </div>
+            <div class="titles">
+              <h3>
+                Total Vote
+              </h3>
+              <h4>
+                {{api.stats['total'] | number:'1.0':'en-US' }}
+              </h4>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
 
-          </mat-tab>
-
-          <mat-tab label="Vote Statistics">
-
-          </mat-tab>
-        </mat-tab-group>
-      </div>
     </div>
-    <div fxLayout="column wrap" fxFlex.lt-sm="100">
+    <div fxLayout="column wrap" fxFlex.lt-sm="100" style="padding-top: 20px;">
       <div>
-        <h2>All Parties</h2>
+        <h2 style="color: white;">All Parties</h2>
       </div>
       <div fxLayout="column wrap">
         <div class="aRow searchBar" fxLayout="row" fxLayoutAlign="space-between center">

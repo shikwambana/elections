@@ -17,6 +17,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { BottomOptionsComponent } from './bottom-options/bottom-options.component';
 import { MatListModule } from "@angular/material/list";
+import { MatTabsModule } from "@angular/material/tabs";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { MatListModule } from "@angular/material/list";
     MatBottomSheetModule,
     MatListModule,
     CommonModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

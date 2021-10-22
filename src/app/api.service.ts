@@ -32,6 +32,7 @@ export class ApiService {
   }
 
   getTopThree(year) {
+    this.topThree = []
     this.getData("generalElections", year, "topThree").subscribe(
       (res: object) => {
         let keys = Object.keys(res["results"]);
@@ -50,6 +51,7 @@ export class ApiService {
 
   getGenElecResult(year) {
 
+    this.parties = []
     return this.getData("generalElections", year).subscribe(
       (res: object) => {
         let keys = Object.keys(res["results"][0]);
