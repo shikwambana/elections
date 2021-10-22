@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-// import { url } from 'inspector';
+import {MatTableDataSource} from '@angular/material/table';
+
 
 class partyData {
   name: string;
@@ -14,7 +15,7 @@ export class ApiService {
   baseURL: string = "https://elections-sa.herokuapp.com/v1/";
   currentYear: string = "1994";
   topThree: Array<partyData> = [];
-  parties: Array<object> = [];
+  parties;
   stats: object = {
     total: 0,
     registered_voters: 0,
@@ -30,8 +31,8 @@ export class ApiService {
     return this.http.get(this.baseURL + type + urlQuery);
   }
 
-  getTopThree() {
-    this.getData("generalElections", this.currentYear, "topThree").subscribe(
+  getTopThree(year) {
+    this.getData("generalElections", year, "topThree").subscribe(
       (res: object) => {
         let keys = Object.keys(res["results"]);
 
@@ -47,8 +48,9 @@ export class ApiService {
     );
   }
 
-  getGenElecResult() {
-    this.getData("generalElections", this.currentYear).subscribe(
+  getGenElecResult(year) {
+
+    return this.getData("generalElections", year).subscribe(
       (res: object) => {
         let keys = Object.keys(res["results"][0]);
         let arr = [];
@@ -70,10 +72,12 @@ export class ApiService {
           registered_voters: arr[4]['data'],
           spoilt_votes: arr[6]['data'],
         };
-
+        this.parties.sort((a, b) => parseFloat(b.data) - parseFloat(a.data));
+        this.parties = new MatTableDataSource(this.parties)
         console.log(this.stats)
-
+        return this.parties
       }
     );
   }
+
 }

@@ -1,15 +1,6 @@
 <div class="container" fxLayout="column">
 
-  <div>
-    <mat-toolbar fxLayoutAlign="space-between center" >
-      <div>
-      <h1>A Look Back</h1>
-      </div>
-      <div class="yearSelector" (click)="chooseDate()">
-        <p>{{currentYear}}</p><mat-icon>keyboard_arrow_down</mat-icon>
-      </div>
-    </mat-toolbar>
-  </div>
+  
   <div style="margin: 0 20px;">
     <router-outlet></router-outlet>
   </div>

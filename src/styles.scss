@@ -8,7 +8,7 @@ html {
 body {
   font-family: 'ABeeZee', sans-serif;
   background-attachment: fixed;
-  background: url('./assets/bg-sa.png') no-repeat;
+  background: url('./assets/bg2.jpg') no-repeat;
   background-size: cover;
   height: 100%;
   margin: 0;
@@ -70,18 +70,7 @@ p {
 }
 
 .card {
-  // border-radius: 15px;
-  // background: linear-gradient(145deg, #ffffffd1, #68afda00);
-  // box-shadow: 5px 5px 15px #338bad, -2px -2px 4px #53a6d83b;
-  // box-shadow: 5px 5px 15px #338badb8, -2px -2px 4px #53a6d800;
-  // border-left: #007298 solid 6px;
-  // min-width: 200px;
-  // max-width: 300px;
-  // min-height: 70px;
-  // padding: 10px;
-  // margin: 10px 0;
-
-  background: linear-gradient(145deg, #ffffff, #9e9b9b73);
+  background: white;
   box-shadow: 5px 5px 15px #696969b8, -2px -2px 4px #53a6d800;
   min-width: 200px;
   max-width: 300px;
@@ -96,6 +85,11 @@ p {
   h4 {
     font-size: larger;
   }
+}
+
+.cardMobile {
+  width: 95%;
+  max-width: 100%;
 }
 
 .card2 {
@@ -141,7 +135,6 @@ button:disabled {
   padding: 10px 20px;
   background: linear-gradient(145deg, #ffffff, #ffffff1c);
   box-shadow: 5px 5px 15px #7d7d7db8, -2px -2px 3px #98999a00;
-  max-width: 215px;
 
   input {
     border: none !important;
@@ -152,4 +145,12 @@ button:disabled {
     border: none !important;
     outline: none !important;
   }
+}
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type {
+  text-align: right !important;
+}
+
+.mat-cell {
+  font-size: 11px !important;
 }
