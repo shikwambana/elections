@@ -4,6 +4,8 @@ import { BottomOptionsComponent } from "../bottom-options/bottom-options.compone
 import { MatBottomSheet } from "@angular/material/bottom-sheet";
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MultiDataSet, Label } from 'ng2-charts';
+import { ChartType } from 'chart.js';
 
 @Component({
   selector: "app-home",
@@ -23,6 +25,12 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatSort) matSort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   isReadMore = true
+
+  doughnutChartLabels: Label[] = ['BMW', 'Ford', 'Tesla'];
+  doughnutChartData: MultiDataSet = [
+    [55, 25, 20]
+  ];
+  doughnutChartType: ChartType = 'doughnut';
 
   constructor(private _bottomSheet: MatBottomSheet, public api: ApiService) {
     this.selectYear();

@@ -13,6 +13,7 @@ body {
   background-size: cover;
   height: 100%;
   margin: 0;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .mat-toolbar {

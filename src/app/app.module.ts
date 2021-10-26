@@ -18,6 +18,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { BottomOptionsComponent } from './bottom-options/bottom-options.component';
 import { MatListModule } from "@angular/material/list";
 import { MatTabsModule } from "@angular/material/tabs";
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MatTabsModule } from "@angular/material/tabs";
     MatListModule,
     CommonModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

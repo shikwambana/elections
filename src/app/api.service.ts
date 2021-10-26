@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {MatTableDataSource} from '@angular/material/table';
+import { MultiDataSet, Label } from 'ng2-charts';
 
 
 class partyData {
@@ -21,6 +22,8 @@ export class ApiService {
     registered_voters: 0,
     spoilt_votes: 0,
   };
+  doughnutChartData: MultiDataSet = [[]]
+  doughnutChartLabels: Label[] = [];
   constructor(private http: HttpClient) {
     this.myheaders = new HttpHeaders();
   }
@@ -42,6 +45,9 @@ export class ApiService {
             name: elem,
             data: res["results"][elem],
           });
+
+          this.doughnutChartData[0].push(res["results"][elem]);
+          this.doughnutChartLabels.push(elem)
         }
 
         console.log(this.topThree);
