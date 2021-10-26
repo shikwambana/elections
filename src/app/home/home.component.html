@@ -10,7 +10,8 @@
       </div>
     </mat-toolbar>
   </div>
-  <div fxLayout="row wrap" fxLayout.fxFlex.lt-fxFlex.lt-sm="column" fxLayoutGap.fxFlex.lt-sm="0px">
+  <div style="padding-top: 10px;" fxLayout="row wrap" fxLayout.fxFlex.lt-fxFlex.lt-sm="column" 
+  fxLayoutGap.fxFlex.lt-sm="0px">
     <div fxLayout="column wrap" fxFlex.lt-sm="100" fxFill>
       <mat-tab-group>
         <mat-tab label="Top Three">
@@ -20,7 +21,7 @@
             </div>
             <div class="titles" *ngFor="let party of api.topThree; let i = index">
               <h3>
-                {{i + 1 }}. {{party['name']}}
+                {{i + 1 }}. {{party['name'] | titlecase }}
               </h3>
               <h4>
                 {{party['data'] | number:'1.0':'en-US'}}
@@ -69,7 +70,7 @@
             <input placeholder="Filter Parties" (keyup)="applyFilter($event)">
           </div>
           <div>
-            <mat-icon>search</mat-icon>
+            <mat-icon style="color: whitesmoke;">search</mat-icon>
           </div>
         </div>
 
@@ -81,7 +82,7 @@
 
             <ng-container matColumnDef="NameOfParty">
               <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let party"> {{party.id}} </td>
+              <td mat-cell *matCellDef="let party"> {{party.id | titlecase}} </td>
             </ng-container>
 
             <ng-container matColumnDef="Number of Votes">

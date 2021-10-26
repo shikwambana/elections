@@ -8,8 +8,8 @@ html {
 
 body {
   font-family: 'ABeeZee', sans-serif;
-  background-attachment: fixed;
-  background: url('./assets/bg2.jpg') no-repeat;
+  background-attachment: fixed;  
+  background-color: #496e6e;
   background-size: cover;
   height: 100%;
   margin: 0;
@@ -27,7 +27,26 @@ body {
       padding: 3px;
     }
   }
+}
 
+.mat-toolbar-row, .mat-toolbar-single-row {
+  padding: 0 !important;
+}
+
+.mat-tab-nav-bar, .mat-tab-header {
+  border-bottom: none !important;
+}
+
+
+.mat-tab-label-active  {
+  color: white;
+  font-weight: 200;
+  background: #3a494a;
+  border-radius: 35px;
+}
+
+.mat-ink-bar {
+  background-color: #496e6e !important;
 }
 
 .container:before {
@@ -39,8 +58,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-  filter: blur(10px);
   margin: -20px;
 }
 
@@ -52,7 +69,6 @@ body {
   z-index: 1;
   background: inherit;
   overflow: hidden;
-  backdrop-filter: blur(5px);
   overflow: auto;
 }
 
@@ -64,6 +80,7 @@ h5,
 h6,
 p {
   margin: 0 !important;
+  font-weight: 200;
 }
 
 .titles {
@@ -71,13 +88,13 @@ p {
 }
 
 .card {
-  background: #424242;
+  background: #3a494a;
   color: white;
-  box-shadow: 5px 5px 15px #696969b8, -2px -2px 4px #53a6d800;
+  // box-shadow: 5px 5px 15px #696969b8, -2px -2px 4px #53a6d800;
   min-width: 200px;
   max-width: 300px;
   min-height: 70px;
-  padding: 10px;
+  padding: 8px;
   margin: 10px 0;
 
   h3 {
@@ -86,6 +103,7 @@ p {
 
   h4 {
     font-size: larger;
+    font-weight: 100;
   }
 }
 
@@ -135,8 +153,8 @@ button:disabled {
 
 .searchBar {
   padding: 10px 20px;
-  background: linear-gradient(145deg, #ffffff, #ffffff1c);
-  box-shadow: 5px 5px 15px #7d7d7db8, -2px -2px 3px #98999a00;
+  background: linear-gradient(145deg, #3a494a, #3a494a);
+  // box-shadow: 5px 5px 15px #7d7d7db8, -2px -2px 3px #98999a00;
 
   input {
     border: none !important;
@@ -147,6 +165,10 @@ button:disabled {
     border: none !important;
     outline: none !important;
   }
+
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.568);
+  }
 }
 
 th.mat-header-cell:last-of-type, td.mat-cell:last-of-type {
@@ -155,4 +177,8 @@ th.mat-header-cell:last-of-type, td.mat-cell:last-of-type {
 
 .mat-cell {
   font-size: 11px !important;
+}
+
+.mat-table {
+  background: #3a494a;
 }
